@@ -7,6 +7,11 @@ use App\Animal;
 
 class Animales extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +29,7 @@ class Animales extends Controller
 
     public function list()
     {
-        $animal = Animal::all();
-        return response()->json([
-            'animals' => $animal
-        ]);
+        return response()->json(Animal::all());
     }
 
     /**

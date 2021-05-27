@@ -9,10 +9,6 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading">Usuarios</div>
-                <a class="nav-link" href="/admins">
-                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                    Administradores
-                </a>
                 <a class="nav-link" href="/users">
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Usuarios

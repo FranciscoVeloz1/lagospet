@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class Usuarios extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,18 @@ class Usuarios extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $usuario = User::all();
+        return view('users.users', [
+            'users' => $user,
+            'usuarios' => $usuario
+        ]);
+    }
+
+    public function list()
+    {
+        $usuario = User::all();
+        return response()->json($usuario);
     }
 
     /**
@@ -56,7 +73,12 @@ class Usuarios extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = auth()->user();
+        $usuario = User::find($id);
+        return view('users.edit', [
+            'users' => $user,
+            'usuario' => $usuario
+        ]);
     }
 
     /**
@@ -66,9 +88,17 @@ class Usuarios extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->name = $req->name;
+        $usuario->email = $req->email;
+
+        if ($usuario->save()) {
+            return redirect('/users');
+        } else {
+            return redirect('/users/edit/' . $id);
+        }
     }
 
     /**
@@ -79,6 +109,7 @@ class Usuarios extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/users');
     }
 }

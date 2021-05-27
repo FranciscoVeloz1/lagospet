@@ -8,18 +8,14 @@
         <div id="layoutSidenav_content">
 
             <div class="container-fluid">
-                <h2 class="mt-4 mb-3">Animales</h2>
+                <h2 class="mt-4 mb-3">Usuarios</h2>
                 <div class="breadcrumb mb-4 row justify-content-between aling-items-center">
-                    <div class="breadcrumb-item ">Lista de animales</div>
+                    <div class="breadcrumb-item ">Lista de usuarios</div>
 
                     <div class="">
-                        <button type="button" id="animal_excel" class="btn btn-primary btn-sm">
+                        <button type="button" id="user_excel" class="btn btn-primary btn-sm">
                             <i class="fas fa-file-excel"></i>
                         </button>
-
-                        <a href="/animals/add" class="btn btn-primary btn-sm" style="margin-left: 10px;">
-                            <i class="fas fa-plus-square"></i> Agregar animal
-                        </a>
                     </div>
                 </div>
             </div>
@@ -31,33 +27,29 @@
                             <tr>
                                 <th class="text-left">ID</th>
                                 <th>Nombre</th>
-                                <th>Raza</th>
-                                <th>Edad</th>
-                                <th>Condicion</th>
+                                <th>Correo</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($animals as $animal)
+                            @foreach ($usuarios as $usuario)
                                 <tr>
-                                    <td class="text-left">{{ $animal->id }}</td>
-                                    <td class="text-left">{{ $animal->nombre }}</td>
-                                    <td class="text-left">{{ $animal->raza }}</td>
-                                    <td class="text-left">{{ $animal->edad }}</td>
-                                    <td class="text-left">{{ $animal->condicion }}</td>
+                                    <td class="text-left">{{ $usuario->id }}</td>
+                                    <td class="text-left">{{ $usuario->name }}</td>
+                                    <td class="text-left">{{ $usuario->email }}</td>
                                     <td>
                                         <!--BOTÓN ACCIONES-->
                                         <div class="btn-group dropleft">
                                             <div>
-                                                <a href="/animals/edit/{{ $animal->id }}"
+                                                <a href="/users/edit/{{ $usuario->id }}"
                                                     class="btn btn-size-right btn-info ml-1">
                                                     Editar
                                                 </a>
                                             </div>
 
                                             <div>
-                                                <a href="/animals/delete/{{ $animal->id }}"
-                                                    onclick='return confirm("¿Quieres eliminar a {{ $animal->nombre }}?")'
+                                                <a href="/users/delete/{{ $usuario->id }}"
+                                                    onclick='return confirm("¿Quieres eliminar a {{ $usuario->name }}?")'
                                                     class="btn btn-size-right btn-danger ml-1" id="btn-delete">
                                                     Eliminar
                                                 </a>

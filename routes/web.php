@@ -28,6 +28,13 @@ Route::post('/animals/edit/{id}', 'Animales@update');
 Route::get('/animals/delete/{id}', 'Animales@destroy');
 Route::get('/api/animals', 'Animales@list');
 
+//User routes
+Route::get('/users', 'Usuarios@index');
+Route::get('/users/edit/{id}', 'Usuarios@edit');
+Route::post('/users/edit/{id}', 'Usuarios@update');
+Route::get('/users/delete/{id}', 'Usuarios@destroy');
+Route::get('/api/users', 'Usuarios@list');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
