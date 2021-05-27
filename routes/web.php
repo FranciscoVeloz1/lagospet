@@ -17,7 +17,13 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+//Profile routes
 Route::get('/profile', 'Perfil@index');
+Route::get('/profile/edit/name', 'Perfil@showName');
+Route::post('/profile/edit/name', 'Perfil@editName');
+Route::get('/profile/edit/email', 'Perfil@showEmail');
+Route::post('/profile/edit/email', 'Perfil@editEmail');
+Route::get('/profile/edit/pass', 'Perfil@showPass');
 
 //Animals routes
 Route::get('/animals', 'Animales@index');

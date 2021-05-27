@@ -18,23 +18,23 @@
                                 <form action="/animals/edit/{{ $animal->id }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="type" name="nombre" value="{{ $animal->nombre }}" placeholder="Nombre"
-                                            class="form-control" autofocus>
+                                        <input type="text" name="nombre" value="{{ $animal->nombre }}" placeholder="Nombre"
+                                            class="form-control" required autofocus>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" name="raza" value="{{ $animal->raza }}" placeholder="Raza"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="type" name="edad" value="{{ $animal->edad }}" placeholder="Edad"
-                                            class="form-control" autofocus>
+                                        <input type="text" name="edad" value="{{ $animal->edad }}" placeholder="Edad"
+                                            class="form-control" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="type" name="condicion" value="{{ $animal->condicion }}"
-                                            placeholder="Condición" class="form-control" autofocus>
+                                        <input type="text" name="condicion" value="{{ $animal->condicion }}"
+                                            placeholder="Condición" class="form-control" required>
                                     </div>
 
 

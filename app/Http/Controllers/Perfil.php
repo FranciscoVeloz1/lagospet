@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class Perfil extends Controller
 {
@@ -21,69 +22,54 @@ class Perfil extends Controller
         return view('perfil.profile', ['users' => $user]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //Editar nombre
+    public function showName()
     {
-        //
+        $user = auth()->user();
+        return view('perfil.editName', ['users' => $user]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function editName(Request $req)
     {
-        //
+        $user = auth()->user();
+        $id = $user->id;
+
+        $usuario = User::find($id);
+        $usuario->name = $req->name;
+
+        if ($usuario->save()) {
+            return redirect('/profile');
+        } else {
+            return redirect('/profile/edit/name');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    //Editar Email
+    public function showEmail()
     {
-        //
+        $user = auth()->user();
+        return view('perfil.editEmail', ['users' => $user]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function editEmail(Request $req)
     {
-        //
+        $user = auth()->user();
+        $id = $user->id;
+
+        $usuario = User::find($id);
+        $usuario->email = $req->email;
+
+        if ($usuario->save()) {
+            return redirect('/profile');
+        } else {
+            return redirect('/profile/edit/email');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    //Editar contraseña
+    public function showPass()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $user = auth()->user();
+        return view('status.404', ['users' => $user]);
     }
 }

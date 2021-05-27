@@ -19,12 +19,12 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="type" name="name" value="{{ $usuario->name }}"
-                                            placeholder="Nombre" class="form-control" autofocus>
+                                            placeholder="Nombre" class="form-control" required autofocus>
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" name="email" value="{{ $usuario->email }}" placeholder="Email"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
 
                                     <div class="form-group">

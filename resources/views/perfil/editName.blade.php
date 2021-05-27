@@ -12,31 +12,19 @@
                     <div class="col-md-6 col-xl-4 mx-auto">
                         <div class="card text-center">
                             <div class="card-header">
-                                <h3>Añadir animal</h3>
+                                <h3>Editar nombre</h3>
                             </div>
                             <div class="card-body">
-                                <form action="/animals/add" method="POST">
+                                <form action="/profile/edit/name" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" required autofocus>
+                                        <input type="text" name="name" value="{{ $users->name }}"
+                                            placeholder="Nombre" class="form-control" required autofocus>
                                     </div>
-
-                                    <div class="form-group">
-                                        <input type="text" name="raza" placeholder="Raza" class="form-control" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" name="edad" placeholder="Edad" class="form-control" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" name="condicion" placeholder="Condición" class="form-control" required>
-                                    </div>
-
 
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-block">
-                                            Guardar
+                                            Editar
                                         </button>
                                     </div>
                                 </form>
